@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heart Beats For You ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #music-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff4b6e;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 10;
+            transition: 0.3s ease;
+        }
+
+        #music-btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        .proposal-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 35px 25px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+
+        .photo-frame {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(45deg, #ff0844, #ffb199);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+        }
+
+        .text-content h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 38px;
+            color: #fff;
+            margin-bottom: 5px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 15px;
+            font-style: italic;
+            color: #ffe6eb;
+            margin-bottom: 15px;
+        }
+
+        .message {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="your-song.mp3" type="audio/mpeg">
+        Aapka browser audio support nahi karta.
+    </audio>
+
+    <button id="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <div class="proposal-card">
+        <div class="photo-frame">
+            <img src="your-photo.jpg" alt="Special Memory">
+        </div>
+
+        <div class="text-content">
+            <h1>Tum Meri Zindagi Ho ❤️</h1>
+            <p class="subtitle">"Tum sirf meri pasand nahi, meri zaroorat ho."</p>
+            <p class="message">
+                Jab se tum meri zindagi mein aaye ho, har din ek khubsurat khwaab lagta hai. 
+                Main apni baaki ki zindagi sirf tumhare saath bitana chahta hoon. 
+                Will you be mine forever?
+            </p>
+            <div class="signature">Forever Yours, Sahil</div>
+        </div>
+    </div>
+
+    <script>
+        let isPlaying = false;
+        const music = document.getElementById("bg-music");
+        const btn = document.getElementById("music-btn");
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                btn.innerHTML = "🎵 Play Music";
+                isPlaying = false;
+            } else {
+                music.play().then(() => {
+                    btn.innerHTML = "⏸️ Pause Music";
+                    isPlaying = true;
+                }).catch(error => {
+                    console.log("Audio play error: ", error);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
